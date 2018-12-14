@@ -19,7 +19,8 @@ module Bolt
     pcp: Bolt::Transport::Orch,
     local: Bolt::Transport::Local,
     docker: Bolt::Transport::Docker,
-    remote: Bolt::Transport::Remote
+    remote: Bolt::Transport::Remote,
+    async: Bolt::Transport::Async
   }.freeze
 
   class UnknownTransportError < Bolt::Error
@@ -57,7 +58,8 @@ module Bolt
       docker: {},
       remote: {
         'run-on' => 'localhost'
-      }
+      },
+      async: {}
     }.freeze
 
     def self.default
